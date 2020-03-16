@@ -11,77 +11,90 @@
 			<th>Game</th>
 			<th>Number</th>
 			<th>Cost</th>
+			<th>Dealer Cost</th>
+			<th>DPS</th>
 		</tr>
 		<tr>
-			<td>Game0</td>
+			<td><div class="bg" id="bg0" style="width: 0%"></div>Game0</td>
 			<td id="num0">1</td>
-			<td id="cost0">0</td>
-			<td><button id="buy0">Buy</button></td>
-			<td><button id="deal0">Deal</button></td>
+			<td id="cost0">4</td>
+			<td id="dealerCost0">64</td>
+			<td id="dps0">1</td>
+			<td><button id="buy0" onclick="buy(0)">Buy</button></td>
+			<td><button id="deal0" onclick="deal(0)">Deal</button></td>
+			<td><button id="buyDealer0" onclick="buyDealer(0)">Buy Dealer</button></td>
 		</tr>
 		<tr>
-			<td>Game1</td>
+			<td><div class="bg" id="bg1" style="width: 0%"></div>Game1</td>
 			<td id="num1">0</td>
-			<td id="cost1">0</td>
-			<td><button id="buy1">Buy</button></td>
-			<td><button id="deal1">Deal</button></td>
+			<td id="cost1">64</td>
+			<td id="dealerCost1">1024</td>
+			<td id="dps1">0</td>
+			<td><button id="buy1" onclick="buy(1)">Buy</button></td>
+			<td><button id="deal1" onclick="deal(1)">Deal</button></td>
+			<td><button id="buyDealer1" onclick="buyDealer(1)">Buy Dealer</button></td>
 		</tr>
 		<tr>
-			<td>Game2</td>
+			<td><div class="bg" id="bg2" style="width: 0%"></div>Game2</td>
 			<td id="num2">0</td>
-			<td id="cost2">0</td>
-			<td><button id="buy2">Buy</button></td>
-			<td><button id="deal2">Deal</button></td>
+			<td id="cost2">1024</td>
+			<td id="dealerCost2">16384</td>
+			<td id="dps2">0</td>
+			<td><button id="buy2" onclick="buy(2)">Buy</button></td>
+			<td><button id="deal2" onclick="deal(2)">Deal</button></td>
+			<td><button id="buyDealer2" onclick="buyDealer(2)">Buy Dealer</button></td>
 		</tr>
 		<tr>
-			<td>Game3</td>
+			<td><div class="bg" id="bg3" style="width: 0%"></div>Game3</td>
 			<td id="num3">0</td>
-			<td id="cost3">0</td>
-			<td><button id="buy3">Buy</button></td>
-			<td><button id="deal3">Deal</button></td>
+			<td id="cost3">16384</td>
+			<td id="dealerCost3">262144</td>
+			<td id="dps3">0</td>
+			<td><button id="buy3" onclick="buy(3)">Buy</button></td>
+			<td><button id="deal3" onclick="deal(3)">Deal</button></td>
+			<td><button id="buyDealer3" onclick="buyDealer(3)">Buy Dealer</button></td>
 		</tr>
 		<tr>
-			<td>Game4</td>
+			<td><div class="bg" id="bg4" style="width: 0%"></div>Game4</td>
 			<td id="num4">0</td>
-			<td id="cost4">0</td>
-			<td><button id="buy4">Buy</button></td>
-			<td><button id="deal4">Deal</button></td>
+			<td id="cost4">262144</td>
+			<td id="dealerCost4">4194304</td>
+			<td id="dps4">0</td>
+			<td><button id="buy4" onclick="buy(4)">Buy</button></td>
+			<td><button id="deal4" onclick="deal(4)">Deal</button></td>
+			<td><button id="buyDealer4" onclick="buyDealer(4)">Buy Dealer</button></td>
 		</tr>
 		<tr>
-			<td>Game5</td>
+			<td><div class="bg" id="bg5" style="width: 0%"></div>Game5</td>
 			<td id="num5">0</td>
-			<td id="cost5">0</td>
-			<td><button id="buy5">Buy</button></td>
-			<td><button id="deal5">Deal</button></td>
+			<td id="cost5">4194304</td>
+			<td id="dealerCost5">67108864</td>
+			<td id="dps5">0</td>
+			<td><button id="buy5" onclick="buy(5)">Buy</button></td>
+			<td><button id="deal5" onclick="deal(5)">Deal</button></td>
+			<td><button id="buyDealer5" onclick="buyDealer(5)">Buy Dealer</button></td>
 		</tr>
 		<tr>
-			<td>Game6</td>
+			<td><div class="bg" id="bg6" style="width: 0%"></div>Game6</td>
 			<td id="num6">0</td>
-			<td id="cost6">0</td>
-			<td><button id="buy6">Buy</button></td>
-			<td><button id="deal6">Deal</button></td>
+			<td id="cost6">67108864</td>
+			<td id="dealerCost6">1073741824</td>
+			<td id="dps6">0</td>
+			<td><button id="buy6" onclick="buy(6)">Buy</button></td>
+			<td><button id="deal6" onclick="deal(6)">Deal</button></td>
+			<td><button id="buyDealer6" onclick="buyDealer(6)">Buy Dealer</button></td>
 		</tr>
 		<tr>
-			<td>Game7</td>
+			<td><div class="bg" id="bg7" style="width: 0%"></div>Game7</td>
 			<td id="num7">0</td>
-			<td id="cost7">0</td>
-			<td><button id="buy7">Buy</button></td>
-			<td><button id="deal7">Deal</button></td>
-		</tr>
-		<tr>
-			<td>Game8</td>
-			<td id="num8">0</td>
-			<td id="cost8">0</td>
-			<td><button id="buy8">Buy</button></td>
-			<td><button id="deal8">Deal</button></td>
-		</tr>
-		<tr>
-			<td>Game9</td>
-			<td id="num9">0</td>
-			<td id="cost9">0</td>
-			<td><button id="buy9">Buy</button></td>
-			<td><button id="deal9">Deal</button></td>
+			<td id="cost7">1073741824</td>
+			<td id="dealerCost7">4294967296</td>
+			<td id="dps7">0</td>
+			<td><button id="buy7" onclick="buy(7)">Buy</button></td>
+			<td><button id="deal7" onclick="deal(7)">Deal</button></td>
+			<td><button id="buyDealer7" onclick="buyDealer(7)">Buy Dealer</button></td>
 		</tr>
 	</table>
+	<script src="script.js"></script>
 </body>
 </html>

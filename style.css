@@ -1,7 +1,28 @@
 td {
 	text-align: left;
+	position: relative;
+	width: 200px;
+}
+
+td+td{
+	text-align: left;
+	width: auto;
+}
+
+th {
+	text-align: left;
 }
 
 table {
-	border-spacing: 2px;
+	border-spacing: 3px;
+	table-layout: fixed;
+}
+
+.bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #8ef;
+    z-index: -1;
 }
