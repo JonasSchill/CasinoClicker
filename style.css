@@ -1,0 +1,72 @@
+td {
+	text-align: left;
+	position: relative;
+	width: 150px;
+	color: #9cdcfe;
+	border: 4px solid #282828;
+}
+
+button{
+	background-color: #808080;
+	font-family: "Lucida Console", monospace;
+	color: #d4d4d4;
+	border: none;
+}
+
+h1 {
+	color: #f4473e;
+	font-size: 250%;
+	text-shadow: 2px 2px #ce9172;
+	/*border: 4px solid #ce9172;*/
+	width: min-content;
+}
+
+td+td{
+	text-align: left;
+	width: auto;
+	color: #9cdcfe;
+	border: 4px solid #282828;
+}
+
+th {
+	text-align: left;
+	color: #569cd6;
+	border: 4px solid #282828;
+}
+
+table {
+	border: 4px solid #282828;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #3e432e;
+    z-index: -1;
+}
+
+p {
+	font-family: "Times New Roman", Times, serif;
+  }
+
+body {
+	font-family: "Lucida Console", monospace;
+	background-color: #1e1e1e;
+}
+
+/*
+Background  30 30 30 #1e1e1e
+Darkblue    86 156 214  #569cd6;
+Grey	    128 128 128
+Lightblue   156 220 254 #9cdcfe
+White       212 212 212    
+Orange      206 145 114 #ce9172
+Red         244 71 62
+Border      40 40 40
+LightGreen  181 206 137
+lightpurple 197 134 192
+*/
