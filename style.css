@@ -1,7 +1,7 @@
 td {
 	text-align: left;
 	position: relative;
-	width: 150px;
+	width: auto;
 	color: #9cdcfe;
 	border: 4px solid #282828;
 }
