@@ -1,4 +1,4 @@
-var capital = bigInt("1000");
+var capital = bigInt("0");
 var num = [1,0,0,0,0,0,0,0,0,0];
 var revenue = [1, 64, 550, 4321, 50000, 654321, 7654321, 100000000, 1000000000, 30000000000];
 var time = [0.5, 4, 6, 12, 24, 100, 400, 1500, 6000, 35000];
@@ -89,6 +89,8 @@ function load() {
 		var i;
 		for (i = 0; i < 10; i++) {
 			document.getElementById("num" + i).innerHTML = num[i];
+			dps[i] = revenue[i] * num[i];
+			document.getElementById("dps" + i).innerHTML = dps[i];
 		}
 	}
 	
