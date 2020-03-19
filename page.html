@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Casino Clicker</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
 	<div align="center"><h1 id="capital" align="center">0</h1></div>
@@ -116,7 +116,12 @@
 			<td><button id="buyDealer9" onclick="buyDealer(9)">Buy Dealer</button></td>
 		</tr>
 	</table>
+	<div style="text-align: center;">
+		<button onclick="save()">Save</button>
+		<button onclick="load()">Load</button>
+		<button onclick="clearStorage()">Clear</button>
+	</div>
 	<script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
-	<script src="script.js"></script>
+	<script src="javascripts/script.js"></script>
 </body>
 </html>
