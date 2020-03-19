@@ -14,6 +14,7 @@ function deal(gamenum) {
 	var n = parseInt(gamenum);
 	if (timeLeft[n] == -1.0 && num[n] > 0) {
 		timeLeft[n] = time[n];
+		disable("deal"  + gamenum.toString());
 	}
 }
 
@@ -28,6 +29,10 @@ function buy(gamenum) {
 		document.getElementById("num" + gamenum).innerHTML = num[n];
 		document.getElementById("cost" + gamenum).innerHTML = nextCost[n];
 		document.getElementById("dps" + gamenum).innerHTML = dps[n];
+		if ((document.getElementById("deal" + gamenum.toString()).className == "invisible") && (document.getElementById("buyDealer" + gamenum.toString()).className != "invisible")) {
+			enable("deal" + gamenum.toString());
+			enable("buyDealer" + gamenum.toString());
+		}	
 	}
 }
 
@@ -43,6 +48,7 @@ function update() {
 					timeLeft[i] = time[i];
 				} else {
 					timeLeft[i] = -1.0;
+					enable("deal" + i);
 				}
 				document.getElementById("capital").innerHTML = capital;
 				document.getElementById("bg" + i).style.width = "0%";
@@ -61,5 +67,18 @@ function buyDealer(gamenum) {
 		deal(gamenum);
 	}
 }
+
+/*--------------------------------------- DISPLAY FEATURES*/
+
+function disable(id) {
+	/*console.log(id)*/
+	document.getElementById(id).className = "disabled";
+}
+
+function enable(id) {
+	/*console.log(id)*/
+	document.getElementById(id).className = "enabled";
+}
+
 
 window.setInterval(function(){update()}, 30);
