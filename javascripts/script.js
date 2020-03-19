@@ -86,7 +86,6 @@ window.setInterval(function(){update()}, 30);
 
 function clearStorage() {
 	localStorage.clear();
-	document.getElementById("debug").innerHTML = "cleared";
 }
 
 function save() {
