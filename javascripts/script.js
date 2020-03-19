@@ -15,7 +15,9 @@ function deal(gamenum) {
 	var n = parseInt(gamenum);
 	if (timeLeft[n] == -1.0 && num[n] > 0) {
 		timeLeft[n] = time[n];
-		disable("deal"  + gamenum.toString());
+		if (dealer[n] == 0) {
+			disable("deal"  + gamenum.toString());
+		}
 	}
 }
 
