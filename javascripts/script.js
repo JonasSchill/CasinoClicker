@@ -1,4 +1,4 @@
-var capital = bigInt("0");
+var capital = bigInt("100");
 var num = [1,0,0,0,0,0,0,0,0,0];
 var revenue = [1, 64, 550, 4321, 50000, 654321, 7654321, 100000000, 1000000000, 30000000000];
 var time = [0.5, 4, 6, 12, 24, 100, 400, 1500, 6000, 35000];
@@ -30,7 +30,7 @@ function buy(gamenum) {
 		document.getElementById("num" + gamenum).innerHTML = num[n];
 		document.getElementById("cost" + gamenum).innerHTML = nextCost[n];
 		document.getElementById("dps" + gamenum).innerHTML = dps[n];
-		if ((document.getElementById("deal" + gamenum.toString()).className == "invisible") && (document.getElementById("buyDealer" + gamenum.toString()).className != "invisible")) {
+		if ((document.getElementById("deal" + gamenum.toString()).className == "invisible") && (document.getElementById("buyDealer" + gamenum.toString()).className == "invisible")) {
 			enable("deal" + gamenum.toString());
 			enable("buyDealer" + gamenum.toString());
 		}	
@@ -73,16 +73,16 @@ function buyDealer(gamenum) {
 /*--------------------------------------- DISPLAY FEATURES*/
 
 function disable(id) {
-	/*console.log(id)*/
+	console.log(id)
 	document.getElementById(id).className = "disabled";
 }
 
 function enable(id) {
-	/*console.log(id)*/
+	console.log(id)
 	document.getElementById(id).className = "enabled";
 }
 
-
+window.setInterval(function(){update()}, 30);
 
 function clearStorage() {
 	localStorage.clear();
@@ -109,6 +109,10 @@ function load() {
 		var i;
 		for (i = 0; i < 10; i++) {
 			document.getElementById("num" + i).innerHTML = num[i];
+			if ((document.getElementById("deal" + i).className == "invisible") && (document.getElementById("buyDealer" + i).className == "invisible") && num[i] >= 1) {
+				enable("deal" + i);
+				enable("buyDealer" + i);
+			}
 			dps[i] = revenue[i] * num[i];
 			document.getElementById("dps" + i).innerHTML = dps[i];
 		}
@@ -129,5 +133,5 @@ function load() {
 	}
 }
 
-window.setInterval(function(){update()}, 30);
+
 //window.setInterval(function(){save()}, 5000);
