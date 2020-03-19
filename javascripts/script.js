@@ -1,4 +1,4 @@
-var capital = bigInt("0");
+var capital = bigInt("1000");
 var num = [1,0,0,0,0,0,0,0,0,0];
 var revenue = [1, 64, 550, 4321, 50000, 654321, 7654321, 100000000, 1000000000, 30000000000];
 var time = [0.5, 4, 6, 12, 24, 100, 400, 1500, 6000, 35000];
@@ -10,10 +10,6 @@ var dealer = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var dealerCost = [1000, 16000, 100000, 500000, 1.25e6, 1.0e7, 123456789, 500000000, 1.0e10, 1.0e11];
 var dps = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var multipliers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-var upgadeName = [];
-var upgradeDesc = [];
-var upgradeTarget = [];
-var upgradeValue = [];
 
 function deal(gamenum) {
 	var n = parseInt(gamenum);
@@ -68,4 +64,48 @@ function buyDealer(gamenum) {
 	}
 }
 
+function clearStorage() {
+	localStorage.clear();
+	document.getElementById("debug").innerHTML = "cleared";
+}
+
+function save() {
+	localStorage.setItem('capital', capital.toString());
+	localStorage.setItem('num', JSON.stringify(num));
+	localStorage.setItem('dealer', JSON.stringify(dealer));
+}
+
+function load() {
+	var tcapital = localStorage.getItem('capital');
+	if (tcapital != null) {
+		capital = bigInt(tcapital);
+		document.getElementById("capital").innerHTML = capital;
+	}
+	
+	
+	var tnum = JSON.parse(localStorage.getItem('num'));
+	if (tnum != null) {
+		num = tnum;
+		var i;
+		for (i = 0; i < 10; i++) {
+			document.getElementById("num" + i).innerHTML = num[i];
+		}
+	}
+	
+	var tdealer = JSON.parse(localStorage.getItem("dealer"));
+	if (tdealer != null) {
+		dealer = tdealer;
+		var i;
+		for (i = 0; i < 10; i++) {
+			if (dealer[i] == 1) {
+				document.getElementById("deal" + i).parentElement.remove();
+				document.getElementById("buyDealer" + i).parentElement.remove();
+				deal(i);
+			}
+			
+		}
+	}
+}
+
 window.setInterval(function(){update()}, 30);
+//window.setInterval(function(){save()}, 5000);
