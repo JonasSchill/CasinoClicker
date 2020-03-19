@@ -49,6 +49,14 @@ table {
     z-index: -1;
 }
 
+button.disabled {
+	background-color: #DC143C;
+}
+
+button.invisible {
+	visibility: hidden;
+}
+
 p {
 	font-family: "Times New Roman", Times, serif;
   }
