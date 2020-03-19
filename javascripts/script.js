@@ -9,6 +9,11 @@ var coefficient = [1.075, 1.15, 1.14, 1.13, 1.12, 1.11, 1.1, 1.09, 1.08, 1.07]
 var dealer = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var dealerCost = [1000, 16000, 100000, 500000, 1.25e6, 1.0e7, 123456789, 500000000, 1.0e10, 1.0e11];
 var dps = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var multipliers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+var upgadeName = [];
+var upgradeDesc = [];
+var upgradeTarget = [];
+var upgradeValue = [];
 
 function deal(gamenum) {
 	var n = parseInt(gamenum);
@@ -38,7 +43,7 @@ function update() {
             timeLeft[i] -= 0.04;
 			document.getElementById("bg" + i).style.width = Math.floor(((time[i] - timeLeft[i]) / time[i])*100) + "%";
 			if (timeLeft[i] <= 0) {
-				capital += num[i] * revenue[i];
+				capital += num[i] * (revenue[i] * multipliers[i]);
 				if (dealer[i] == 1) {
 					timeLeft[i] = time[i];
 				} else {
