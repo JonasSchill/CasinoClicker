@@ -34,10 +34,12 @@ function buy(gamenum) {
 		document.getElementById("num" + gamenum).innerHTML = num[n];
 		document.getElementById("cost" + gamenum).innerHTML = nextCost[n];
 		document.getElementById("dps" + gamenum).innerHTML = dps[n];
+		if (document.getElementById("deal" + gamenum) != null && document.getElementById("buyDealer" + gamenum) != null) {
 		if ((document.getElementById("deal" + gamenum.toString()).className == "invisible") && (document.getElementById("buyDealer" + gamenum.toString()).className == "invisible")) {
 			enable("deal" + gamenum.toString());
 			enable("buyDealer" + gamenum.toString());
-		}	
+		}
+	}	
 	}
 }
 
