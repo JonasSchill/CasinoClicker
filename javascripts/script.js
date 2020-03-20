@@ -173,4 +173,4 @@ window.onload = pageLoaded;
 
 
 
-//window.setInterval(function(){save()}, 5000);
+window.setInterval(function(){save()}, 6000);
