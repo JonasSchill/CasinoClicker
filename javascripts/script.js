@@ -10,6 +10,8 @@ var dealer = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var dealerCost = [1000, 16000, 100000, 500000, 1.25e6, 1.0e7, 123456789, 500000000, 1.0e10, 1.0e11];
 var dps = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var multipliers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+var dateOne;
+var dateTwo;
 
 function deal(gamenum) {
 	var n = parseInt(gamenum);
@@ -26,7 +28,7 @@ function buy(gamenum) {
 	if (capital >= nextCost[n]) {
 		capital -= nextCost[n];
 		num[n] += 1;
-		dps[n] = Math.round((revenue[n] * num[n])/time[n]);
+		dps[n] = Math.floor((revenue[n] * num[n])/time[n]);
 		nextCost[n] = Math.round(baseCost[n] * (coefficient[n] ** num[n]));
 		document.getElementById("capital").innerHTML = capital;
 		document.getElementById("num" + gamenum).innerHTML = num[n];
@@ -86,6 +88,8 @@ function enable(id) {
 
 window.setInterval(function(){update()}, 30);
 
+/*--------------------------------------- SAVE LOAD CLEAR*/
+
 function clearStorage() {
 	localStorage.clear();
 }
@@ -94,9 +98,15 @@ function save() {
 	localStorage.setItem('capital', capital.toString());
 	localStorage.setItem('num', JSON.stringify(num));
 	localStorage.setItem('dealer', JSON.stringify(dealer));
+	dateOne = new Date();
+	dateOne = dateOne.getTime();
+	localStorage.setItem('date', JSON.stringify(dateOne));
 }
 
 function load() {
+	var tdate = JSON.parse(localStorage.getItem('date'));
+	dateOne = tdate;
+
 	var tcapital = localStorage.getItem('capital');
 	if (tcapital != null) {
 		capital = bigInt(tcapital);
@@ -133,6 +143,34 @@ function load() {
 		}
 	}
 }
+
+
+function pageLoaded() {
+	load();
+	if (dateOne != null) {
+		console.log(dateOne);
+		dateTwo = new Date();
+		dateTwo = dateTwo.getTime();
+		console.log(dateTwo);
+		var timeDiff = dateTwo - dateOne;
+		timeDiff /= 1000;
+		var diffSeconds = Math.round(timeDiff);
+		diffSeconds = parseInt(diffSeconds);
+		var i;
+		for (i = 0; i < 10; i++) {
+			if (num[i] >= 1 && dealer[i] == 1) {
+				capital += Math.floor(((revenue[i] * num[i])/time[i]) * diffSeconds);
+			}
+		}
+		document.getElementById("capital").innerHTML = capital;
+	}
+	
+}
+
+
+window.onload = pageLoaded;
+
+
 
 
 //window.setInterval(function(){save()}, 5000);
