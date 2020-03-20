@@ -28,7 +28,7 @@ function buy(gamenum) {
 	if (capital >= nextCost[n]) {
 		capital -= nextCost[n];
 		num[n] += 1;
-		dps[n] = Math.floor((revenue[n] * num[n])/time[n]);
+		dps[n] = Math.floor(((revenue[n] * num[n])/time[n]));
 		nextCost[n] = Math.round(baseCost[n] * (coefficient[n] ** num[n]));
 		document.getElementById("capital").innerHTML = capital;
 		document.getElementById("num" + gamenum).innerHTML = num[n];
@@ -103,12 +103,14 @@ function save() {
 	dateOne = new Date();
 	dateOne = dateOne.getTime();
 	localStorage.setItem('date', JSON.stringify(dateOne));
+	localStorage.setItem('timeLeft', JSON.stringify(timeLeft));
 }
 
 function load() {
 	var tdate = JSON.parse(localStorage.getItem('date'));
-	dateOne = tdate;
-
+	if (tdate != null) {
+		dateOne = tdate;
+	}
 	var tcapital = localStorage.getItem('capital');
 	if (tcapital != null) {
 		capital = bigInt(tcapital);
@@ -143,6 +145,11 @@ function load() {
 			}
 			
 		}
+	}
+
+	var ttimeLeft = JSON.parse(localStorage.getItem("timeLeft"));
+	if (ttimeLeft != null) {
+		timeLeft = ttimeLeft;
 	}
 }
 
